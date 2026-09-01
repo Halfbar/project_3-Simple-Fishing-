@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://72wgi4g5l8gj"]
+
+[ext_resource type="Script" uid="uid://dfjtuwog43277" path="res://scenes/user_interface/user_interface.gd" id="1_yqwyh"]
+[ext_resource type="PackedScene" uid="uid://cxunluktj8erf" path="res://scenes/user_interface/pause/pause.tscn" id="2_e2uov"]
+
+[node name="user_interface" type="CanvasLayer" unique_id=1011023583]
+script = ExtResource("1_yqwyh")
+
+[node name="in_game" type="Control" parent="." unique_id=1552501331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fps_show_label" type="Label" parent="in_game" unique_id=1559268838]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "FPS: 0"
+
+[node name="event_ui" type="Control" parent="." unique_id=169629883]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause" parent="event_ui" unique_id=1878600883 instance=ExtResource("2_e2uov")]
+visible = false
+layout_mode = 1

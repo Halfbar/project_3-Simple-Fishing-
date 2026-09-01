@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://djxe7exv2p07j"]
+
+[ext_resource type="Script" uid="uid://7e203uy74jtq" path="res://scenes/theme/sound_btn/sound_btn.gd" id="1_wvwj3"]
+
+[node name="sound_btn" type="Button" unique_id=807909536]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_wvwj3")

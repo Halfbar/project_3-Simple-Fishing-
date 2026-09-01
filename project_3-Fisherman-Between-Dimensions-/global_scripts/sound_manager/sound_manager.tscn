@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ck1m0dybgv03o"]
+
+[ext_resource type="Script" uid="uid://bjr3vjsjfxo0q" path="res://global_scripts/sound_manager/sound_manager.gd" id="1_d76tc"]
+[ext_resource type="PackedScene" uid="uid://bg55yx7bib2ic" path="res://global_scripts/sound_manager/sfx_player/sfx_player.tscn" id="2_sbjxq"]
+
+[node name="sound_manager" type="Node" unique_id=65782390]
+script = ExtResource("1_d76tc")
+
+[node name="music_player" type="AudioStreamPlayer" parent="." unique_id=971210655]
+volume_db = -15.0
+bus = &"Music"
+
+[node name="sfx_players" type="Node" parent="." unique_id=1200412586]
+
+[node name="sfx_player" parent="sfx_players" unique_id=1891227334 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player2" parent="sfx_players" unique_id=1802636638 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player3" parent="sfx_players" unique_id=668634315 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player4" parent="sfx_players" unique_id=1060392989 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player5" parent="sfx_players" unique_id=935881442 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player6" parent="sfx_players" unique_id=1905332555 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player7" parent="sfx_players" unique_id=926491625 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player8" parent="sfx_players" unique_id=1389707544 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player9" parent="sfx_players" unique_id=755335358 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player10" parent="sfx_players" unique_id=219839211 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player11" parent="sfx_players" unique_id=1809421570 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player12" parent="sfx_players" unique_id=1515947909 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player13" parent="sfx_players" unique_id=1675312998 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player14" parent="sfx_players" unique_id=1140984115 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player15" parent="sfx_players" unique_id=11129880 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player16" parent="sfx_players" unique_id=912933231 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player17" parent="sfx_players" unique_id=24541771 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player18" parent="sfx_players" unique_id=998498797 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player19" parent="sfx_players" unique_id=163474679 instance=ExtResource("2_sbjxq")]
+
+[node name="sfx_player20" parent="sfx_players" unique_id=1226728762 instance=ExtResource("2_sbjxq")]

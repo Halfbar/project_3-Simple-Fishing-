@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cxunluktj8erf"]
+
+[ext_resource type="Script" uid="uid://6hrvgfh8leot" path="res://scenes/user_interface/pause/pause.gd" id="1_v6rld"]
+[ext_resource type="PackedScene" uid="uid://djxe7exv2p07j" path="res://scenes/theme/sound_btn/sound_btn.tscn" id="2_ffoil"]
+[ext_resource type="PackedScene" uid="uid://xtd2b1ebvnv3" path="res://scenes/settings/settings.tscn" id="3_aunn6"]
+
+[node name="pause" type="Control" unique_id=1878600883]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6rld")
+
+[node name="other_panels" type="Control" parent="." unique_id=1693872984]
+layout_mode = 1
+anchor_left = 0.07700001
+anchor_top = 0.079
+anchor_right = 0.91800004
+anchor_bottom = 0.92
+offset_left = 0.29599
+offset_top = -0.19200134
+offset_right = 0.35290527
+offset_bottom = -0.16003418
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings" parent="other_panels" unique_id=877896953 instance=ExtResource("3_aunn6")]
+visible = false
+layout_mode = 1
+
+[node name="settings_exit_btn" parent="other_panels/settings" unique_id=807909536 instance=ExtResource("2_ffoil")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.75
+offset_top = -69.0
+offset_right = 61.75
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
+
+[node name="btn_panel" type="Control" parent="." unique_id=424849779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -115.0
+offset_right = 115.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_bg" type="Panel" parent="btn_panel" unique_id=1276330502]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_margin" type="MarginContainer" parent="btn_panel" unique_id=1263943966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="btn_vbox" type="VBoxContainer" parent="btn_panel/btn_margin" unique_id=757142655]
+layout_mode = 2
+
+[node name="btn_continue" parent="btn_panel/btn_margin/btn_vbox" unique_id=1407724178 instance=ExtResource("2_ffoil")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Continue"
+
+[node name="btn_settings" parent="btn_panel/btn_margin/btn_vbox" unique_id=640257455 instance=ExtResource("2_ffoil")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="btn_exit" parent="btn_panel/btn_margin/btn_vbox" unique_id=390292401 instance=ExtResource("2_ffoil")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[connection signal="pressed" from="other_panels/settings/settings_exit_btn" to="." method="_on_settings_exit_btn_pressed"]
+[connection signal="pressed" from="btn_panel/btn_margin/btn_vbox/btn_continue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="btn_panel/btn_margin/btn_vbox/btn_settings" to="." method="_on_btn_settings_pressed"]
+[connection signal="pressed" from="btn_panel/btn_margin/btn_vbox/btn_exit" to="." method="_on_btn_exit_pressed"]

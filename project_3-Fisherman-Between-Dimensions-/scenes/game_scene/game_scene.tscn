@@ -2,8 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ids11emu0jxy" path="res://scenes/game_scene/game_scene.gd" id="1_72663"]
 [ext_resource type="PackedScene" uid="uid://72wgi4g5l8gj" path="res://scenes/user_interface/user_interface.tscn" id="1_pwder"]
+[ext_resource type="PackedScene" uid="uid://tammg8tck34d" path="res://scenes/player/player.tscn" id="3_o81xq"]
+[ext_resource type="PackedScene" uid="uid://dt614kfnaa0b6" path="res://scenes/fishing_area/fishing_area.tscn" id="4_xb203"]
 
 [node name="game_scene" type="Node2D" unique_id=1383640292]
 script = ExtResource("1_72663")
 
 [node name="user_interface" parent="." unique_id=1011023583 instance=ExtResource("1_pwder")]
+
+[node name="player" parent="." unique_id=89883585 instance=ExtResource("3_o81xq")]
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=53010120]
+
+[node name="fishing_area" parent="." unique_id=718110983 instance=ExtResource("4_xb203")]
+position = Vector2(201, 0)
+scale = Vector2(16.144524, 16.144524)

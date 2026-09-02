@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cs8nxnl6gjad6"]
+
+[ext_resource type="Script" uid="uid://dg00wfaa4yo8v" path="res://scenes/fishing_rod/fishing_rod.gd" id="1_ax5ha"]
+[ext_resource type="Texture2D" uid="uid://b6ostws62nrdu" path="res://icon.svg" id="1_lo4qe"]
+[ext_resource type="PackedScene" uid="uid://ce053bifhoe5o" path="res://scenes/bubbler/bubbler.tscn" id="3_fx4p7"]
+
+[node name="fishing_rod" type="Node2D" unique_id=165939338 node_paths=PackedStringArray("bubbler")]
+script = ExtResource("1_ax5ha")
+bubbler = NodePath("bubbler")
+
+[node name="fishing_rod_sprite" type="Sprite2D" parent="." unique_id=939404942]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.10546875, 0.5625)
+texture = ExtResource("1_lo4qe")
+
+[node name="bubbler" parent="." unique_id=2129681403 instance=ExtResource("3_fx4p7")]
+position = Vector2(23, -16)
+rotation = -0.7853982

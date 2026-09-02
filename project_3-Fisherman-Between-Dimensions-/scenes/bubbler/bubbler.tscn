@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ce053bifhoe5o"]
+
+[ext_resource type="Script" uid="uid://drfeq86gkfl4e" path="res://scenes/bubbler/bubbler.gd" id="1_7cxgl"]
+[ext_resource type="Texture2D" uid="uid://b6ostws62nrdu" path="res://icon.svg" id="1_ar4yp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ass7y"]
+size = Vector2(15.25, 16)
+
+[node name="bubbler" type="Node2D" unique_id=2129681403]
+script = ExtResource("1_7cxgl")
+
+[node name="bubbler_sprite" type="Sprite2D" parent="." unique_id=1836301772]
+position = Vector2(7.1525574e-07, -7.1525574e-07)
+scale = Vector2(0.13476564, 0.13476564)
+texture = ExtResource("1_ar4yp")
+
+[node name="bubbler_area2d" type="Area2D" parent="." unique_id=20140421]
+
+[node name="bubbler_collision" type="CollisionShape2D" parent="bubbler_area2d" unique_id=1134100322]
+shape = SubResource("RectangleShape2D_ass7y")

@@ -1,6 +1,42 @@
 [gd_scene format=3 uid="uid://tammg8tck34d"]
 
 [ext_resource type="Script" uid="uid://b3q1p0k3o86q3" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="Texture2D" uid="uid://b6ostws62nrdu" path="res://icon.svg" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://cs8nxnl6gjad6" path="res://scenes/fishing_rod/fishing_rod.tscn" id="2_lvxji"]
 
-[node name="player" type="Node2D" unique_id=89883585]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
+atlas = ExtResource("2_dovo2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ass7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlin")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ass7y"]
+size = Vector2(65, 70)
+
+[node name="player" type="Node2D" unique_id=89883585 node_paths=PackedStringArray("fishing_rod")]
 script = ExtResource("1_8afob")
+fishing_rod = NodePath("fishing_rod")
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="." unique_id=1447869123]
+scale = Vector2(0.59765625, 0.59765625)
+sprite_frames = SubResource("SpriteFrames_ass7y")
+animation = &"idle"
+
+[node name="player_area2d" type="Area2D" parent="." unique_id=1375630403]
+
+[node name="player_collider" type="CollisionShape2D" parent="player_area2d" unique_id=247483329]
+shape = SubResource("RectangleShape2D_ass7y")
+
+[node name="fishing_rod" parent="." unique_id=165939338 instance=ExtResource("2_lvxji")]
+position = Vector2(53.000008, -18.000004)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)

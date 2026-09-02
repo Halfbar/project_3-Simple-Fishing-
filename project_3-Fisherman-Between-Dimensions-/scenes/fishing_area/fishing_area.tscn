@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dt614kfnaa0b6"]
+
+[ext_resource type="Script" uid="uid://3kxbfb0rxjv4" path="res://scenes/fishing_area/fishing_area.gd" id="1_x34xa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ass7y"]
+
+[node name="fishing_area" type="Node2D" unique_id=718110983]
+script = ExtResource("1_x34xa")
+
+[node name="fishing_area2d" type="Area2D" parent="." unique_id=55030185]
+
+[node name="fishing_collision" type="CollisionShape2D" parent="fishing_area2d" unique_id=252467669]
+shape = SubResource("CircleShape2D_ass7y")

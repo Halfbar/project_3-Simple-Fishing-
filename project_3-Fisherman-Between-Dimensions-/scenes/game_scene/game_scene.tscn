@@ -8,12 +8,13 @@
 [node name="game_scene" type="Node2D" unique_id=1383640292]
 script = ExtResource("1_72663")
 
+[node name="fishing_area" parent="." unique_id=718110983 instance=ExtResource("4_xb203")]
+position = Vector2(201.00002, 0)
+scale = Vector2(16, 16)
+
 [node name="user_interface" parent="." unique_id=1011023583 instance=ExtResource("1_pwder")]
 
 [node name="player" parent="." unique_id=89883585 instance=ExtResource("3_o81xq")]
+position = Vector2(11, -45)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=53010120]
-
-[node name="fishing_area" parent="." unique_id=718110983 instance=ExtResource("4_xb203")]
-position = Vector2(201, 0)
-scale = Vector2(16.144524, 16.144524)

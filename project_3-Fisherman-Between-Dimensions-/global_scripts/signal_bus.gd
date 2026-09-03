@@ -1,3 +1,4 @@
 extends Node
 
-signal test
+signal fishing_rod_state
+signal event_started

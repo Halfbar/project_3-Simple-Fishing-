@@ -16,7 +16,7 @@ texture = ExtResource("2_a1b0n")
 
 [node name="bobber_area2d" type="Area2D" parent="." unique_id=20140421]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 12
 
 [node name="bobber_collision" type="CollisionShape2D" parent="bobber_area2d" unique_id=1134100322]
 shape = SubResource("CircleShape2D_o2a5t")

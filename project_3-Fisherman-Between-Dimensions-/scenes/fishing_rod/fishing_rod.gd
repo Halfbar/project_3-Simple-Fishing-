@@ -1,12 +1,15 @@
 extends Node2D
 class_name FishingRod
 
+@onready var fishing_distance_collision: CollisionShape2D = $fishing_distance_area2d/fishing_distance_collision
+@onready var fishing_catch_collision: CollisionShape2D = $fishing_catch_area2d/fishing_catch_collision
+
 enum RodStates {
 	IDLE,
 	CHARGING,
 	CASTING,
 	WAITING,
-	REELING,
+	FISHING,
 	CAUGHT,
 	FAILED
 }
@@ -15,19 +18,46 @@ enum RodStates {
 
 var current_state: RodStates = RodStates.IDLE
 
+@export var max_stamina: float = 100.0
+var stamina: float
+var stamina_regeniration: float = 2.0
+var reel_stamina_drain: float = 2.0
+
 func _ready() -> void:
 	SignalBus.event_started.connect(_on_event_started)
 
+func get_fishing_min_radius():
+	return fishing_catch_collision.shape.radius * global_scale.x
+
+func get_fishing_max_radius():
+	return fishing_distance_collision.shape.radius * global_scale.x
+
 func _on_event_started(_fish_behavior):
-	return
-	set_state(RodStates.REELING)
-	# player inputs now affects stats and used during minigame
-	# stats:
-	# fishing line lenght - if bobber went too far - end event
-	# fishing line endurance - if draw while fish in running state
-	# line endurance will lower - if too low line breaks
-	# stamina - if player ran out of stamina - cant affect game
-	
+	stamina = max_stamina
+	set_state(RodStates.FISHING)
+
+func _process(delta: float) -> void:
+	stamina = min(
+	stamina + stamina_regeniration * delta,
+	max_stamina
+	)
+
+func reel(delta: float):
+	# rod is moving bobber closer to it
+	# and drains stamina depends on strenght of action
+	# if stamina is 0 - can`t pull bobber
+	# stamina recharging by itself in a while
+	if current_state != RodStates.FISHING:
+		return
+	if stamina <= 0:
+		return
+	bobber.move_to_rod(delta)
+	var drain := (
+		bobber.current_fish_action.strength
+		+ reel_stamina_drain
+	)
+	stamina -= drain * delta
+	stamina = max(stamina, 0.0)
 
 func start_cast_charge() -> bool:
 	if current_state == RodStates.CASTING:
@@ -51,7 +81,7 @@ func request_cast(cast_position: Vector2):
 		return
 	set_state(RodStates.CASTING)
 	await bobber.throw_bobber(cast_position)
-	if !bobber.check_collision():
+	if !bobber.is_in_fishing_area():
 		print("not_in_lake")
 		await bobber.set_default_position()
 		set_state(RodStates.IDLE)
@@ -63,3 +93,17 @@ func set_state(new_state: RodStates):
 		return
 	current_state = new_state
 	SignalBus.fishing_rod_state.emit(current_state)
+
+func _on_fishing_catch_area_2d_area_entered(area: Area2D) -> void:
+	if current_state == RodStates.FISHING:
+		print("Caught")
+		set_state(RodStates.CAUGHT)
+		set_state(RodStates.IDLE)
+		return
+
+func _on_fishing_distance_area_2d_area_exited(area: Area2D) -> void:
+	if current_state == RodStates.FISHING:
+		print("Failed")
+		set_state(RodStates.FAILED)
+		set_state(RodStates.IDLE)
+		return

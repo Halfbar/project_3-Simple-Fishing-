@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://kuav3ikdri4b"]
+
+[ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_gityl"]
+[ext_resource type="Resource" uid="uid://b8qhins838h08" path="res://resources/fish_resource/common_fish/fish_actions/fight.tres" id="2_ovkif"]
+[ext_resource type="Script" uid="uid://cfjgw4esw0p0g" path="res://resources/fish_resource.gd" id="2_q6eep"]
+[ext_resource type="Resource" uid="uid://dsm33j3155vma" path="res://resources/fish_resource/common_fish/fish_actions/recovery.tres" id="3_ovkif"]
+
+[resource]
+script = ExtResource("2_q6eep")
+fish_name = "Common fish"
+fish_actions = Array[ExtResource("1_gityl")]([ExtResource("2_ovkif"), ExtResource("3_ovkif")])
+metadata/_custom_type_script = "uid://cfjgw4esw0p0g"

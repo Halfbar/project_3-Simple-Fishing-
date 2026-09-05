@@ -4,6 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bng0bt1ikcvp4" path="res://scenes/fishing_rod/fishing_rod_texture.tres" id="2_fx4p7"]
 [ext_resource type="PackedScene" uid="uid://ce053bifhoe5o" path="res://scenes/bobber/bobber.tscn" id="3_fx4p7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ass7y"]
+radius = 215.00931
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhmab"]
+radius = 39.012817
+
 [node name="fishing_rod" type="Node2D" unique_id=165939338 node_paths=PackedStringArray("bobber")]
 script = ExtResource("1_ax5ha")
 bobber = NodePath("bubbler")
@@ -16,3 +22,20 @@ texture = ExtResource("2_fx4p7")
 [node name="bubbler" parent="." unique_id=2129681403 instance=ExtResource("3_fx4p7")]
 position = Vector2(12.000001, -16)
 rotation = -0.7853982
+
+[node name="fishing_distance_area2d" type="Area2D" parent="." unique_id=980902871]
+collision_layer = 0
+collision_mask = 16
+
+[node name="fishing_distance_collision" type="CollisionShape2D" parent="fishing_distance_area2d" unique_id=643300242]
+shape = SubResource("CircleShape2D_ass7y")
+
+[node name="fishing_catch_area2d" type="Area2D" parent="." unique_id=1010163346]
+collision_layer = 8
+collision_mask = 16
+
+[node name="fishing_catch_collision" type="CollisionShape2D" parent="fishing_catch_area2d" unique_id=701886380]
+shape = SubResource("CircleShape2D_qhmab")
+
+[connection signal="area_exited" from="fishing_distance_area2d" to="." method="_on_fishing_distance_area_2d_area_exited"]
+[connection signal="area_entered" from="fishing_catch_area2d" to="." method="_on_fishing_catch_area_2d_area_entered"]

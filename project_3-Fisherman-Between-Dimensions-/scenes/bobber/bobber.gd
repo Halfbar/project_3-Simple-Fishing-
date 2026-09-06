@@ -58,6 +58,7 @@ func _on_fishing_rod_state(rod_current_state: FishingRod.RodStates):
 		return
 	if rod_current_state == FishingRod.RodStates.CAUGHT:
 		set_default_position()
+		GameManager.register_fish_caught(current_fish)
 		return
 
 func move_to_rod(delta) -> void:

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://522akmbp8sry"]
+
+[ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_p2tge"]
+[ext_resource type="Resource" uid="uid://c1ou7kgaow23c" path="res://resources/fish_resource/strange_fish/strange_fish_actions/strage_dash.tres" id="2_v5f4c"]
+[ext_resource type="Resource" uid="uid://dh53y7cllgp77" path="res://resources/fish_resource/strange_fish/strange_fish_actions/strage_recovery.tres" id="3_sbofl"]
+[ext_resource type="Texture2D" uid="uid://bi7fwchb01t2j" path="res://resources/fish_resource/strange_fish/strange_fish_texture.tres" id="4_sbofl"]
+[ext_resource type="Script" uid="uid://cfjgw4esw0p0g" path="res://resources/fish_resource.gd" id="4_wr66u"]
+
+[resource]
+script = ExtResource("4_wr66u")
+fish_name = "Strange fish"
+fish_actions = Array[ExtResource("1_p2tge")]([ExtResource("2_v5f4c"), ExtResource("3_sbofl"), ExtResource("3_sbofl"), ExtResource("2_v5f4c"), ExtResource("3_sbofl")])
+fish_texture = ExtResource("4_sbofl")
+fish_description = "It does not swim like a fish.
+It moves in patterns that seem almost deliberate - as if it were following a path that only it can see."
+metadata/_custom_type_script = "uid://cfjgw4esw0p0g"

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dfs0h8g5povuq"]
+
+[ext_resource type="PackedScene" uid="uid://cjhksmi0ai8ds" path="res://scenes/fish_collection/fish_collection_card/fish_collection_card.tscn" id="1_qmhv4"]
+[ext_resource type="Script" uid="uid://woxcyk2phx1k" path="res://scenes/fish_collection/fish_collection.gd" id="1_u6awj"]
+
+[node name="fish_collection" type="Control" unique_id=1890942614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6awj")
+
+[node name="collection_panel" type="Panel" parent="." unique_id=288019970]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="collection_panel" unique_id=378840206]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="close_btn_margin" type="MarginContainer" parent="collection_panel/VBoxContainer" unique_id=1992862980]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="close_btn_placeholder" type="Panel" parent="collection_panel/VBoxContainer/close_btn_margin" unique_id=1358645869]
+visible = false
+layout_mode = 2
+
+[node name="collection_hbox" type="HBoxContainer" parent="collection_panel/VBoxContainer" unique_id=1445223358]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="prev_btn_margin" type="MarginContainer" parent="collection_panel/VBoxContainer/collection_hbox" unique_id=1398684003]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="prev_btn" type="Button" parent="collection_panel/VBoxContainer/collection_hbox/prev_btn_margin" unique_id=2065961374]
+layout_mode = 2
+text = "Previous"
+
+[node name="card_margin" type="MarginContainer" parent="collection_panel/VBoxContainer/collection_hbox" unique_id=2023757475]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="fish_collection_card" parent="collection_panel/VBoxContainer/collection_hbox/card_margin" unique_id=1768243998 instance=ExtResource("1_qmhv4")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="next_btn_margin" type="MarginContainer" parent="collection_panel/VBoxContainer/collection_hbox" unique_id=1645757741]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="next_btn" type="Button" parent="collection_panel/VBoxContainer/collection_hbox/next_btn_margin" unique_id=1624646795]
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="collection_panel/VBoxContainer/collection_hbox/prev_btn_margin/prev_btn" to="." method="_on_prev_btn_pressed"]
+[connection signal="pressed" from="collection_panel/VBoxContainer/collection_hbox/next_btn_margin/next_btn" to="." method="_on_next_btn_pressed"]

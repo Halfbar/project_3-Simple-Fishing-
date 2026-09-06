@@ -33,3 +33,9 @@ func trigger_event():
 	var fish_behavior = all_fishes.pick_random()
 	SignalBus.event_started.emit(fish_behavior)
 	print("Event started!")
+
+func register_fish_caught(fish: FishResource) -> void:
+	for current_fish in all_fishes:
+		if current_fish == fish:
+			current_fish.fish_caught = true
+			return

@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cjhksmi0ai8ds"]
+
+[ext_resource type="Script" uid="uid://dpbcubntm5t5d" path="res://scenes/fish_collection/fish_collection_card/fish_collection_card.gd" id="1_o4vqy"]
+[ext_resource type="Texture2D" uid="uid://b6ostws62nrdu" path="res://icon.svg" id="1_vu7ej"]
+
+[node name="fish_collection_card" type="Control" unique_id=1768243998]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4vqy")
+
+[node name="card_panel" type="Panel" parent="." unique_id=1847148339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="card_vbox" type="VBoxContainer" parent="card_panel" unique_id=27732575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="card_up_part" type="Control" parent="card_panel/card_vbox" unique_id=1071075806]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="card_up_part_margin" type="MarginContainer" parent="card_panel/card_vbox/card_up_part" unique_id=843923840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="card_up_part_vbox" type="VBoxContainer" parent="card_panel/card_vbox/card_up_part/card_up_part_margin" unique_id=370648974]
+layout_mode = 2
+
+[node name="card_up_part_label" type="Label" parent="card_panel/card_vbox/card_up_part/card_up_part_margin/card_up_part_vbox" unique_id=205001312]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "Fish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="card_up_part_texture" type="TextureRect" parent="card_panel/card_vbox/card_up_part/card_up_part_margin/card_up_part_vbox" unique_id=1899612572]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_vu7ej")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="card_middle_divider" type="MarginContainer" parent="card_panel/card_vbox" unique_id=1227187116]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="card_middle_divider_texture" type="TextureRect" parent="card_panel/card_vbox/card_middle_divider" unique_id=2098440900]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_vu7ej")
+expand_mode = 1
+
+[node name="card_down_part" type="Control" parent="card_panel/card_vbox" unique_id=241865718]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="card_down_part_margin" type="MarginContainer" parent="card_panel/card_vbox/card_down_part" unique_id=961627828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="card_down_part_label" type="Label" parent="card_panel/card_vbox/card_down_part/card_down_part_margin" unique_id=1395733280]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec vulputate elit, ut consequat nisl. Pellentesque vitae sollicitudin mauris. Curabitur interdum viverra orci et lacinia. Cras hendrerit massa diam, eget suscipit ex feugiat quis. Sed tincidunt blandit massa, placerat lobortis ligula. Donec quis augue risus. Donec varius pharetra sagittis.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

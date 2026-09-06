@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishAction" format=3 uid="uid://c1ou7kgaow23c"]
+
+[ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_4p53s"]
+
+[resource]
+script = ExtResource("1_4p53s")
+action_type = 2
+duration = 0.5
+strength = 300.0
+metadata/_custom_type_script = "uid://da1jfd8y6xcev"

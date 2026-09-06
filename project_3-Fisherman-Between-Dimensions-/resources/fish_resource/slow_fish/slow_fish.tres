@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://cmnw2767t31oh"]
+
+[ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_iv7q4"]
+[ext_resource type="Resource" uid="uid://cs6ugpxa2sbyd" path="res://resources/fish_resource/slow_fish/slow_fish_actions/slow_fight.tres" id="2_iv7q4"]
+[ext_resource type="Script" uid="uid://cfjgw4esw0p0g" path="res://resources/fish_resource.gd" id="3_vyc04"]
+[ext_resource type="Texture2D" uid="uid://c7yr8oueirb3h" path="res://resources/fish_resource/slow_fish/slow_fish_texture.tres" id="3_wca5c"]
+
+[resource]
+script = ExtResource("3_vyc04")
+fish_name = "Slow fish"
+fish_actions = Array[ExtResource("1_iv7q4")]([ExtResource("2_iv7q4")])
+fish_texture = ExtResource("3_wca5c")
+fish_description = "It moves slowly, almost lazily.
+Still, it never stops. Perhaps it simply knows where it is going."
+metadata/_custom_type_script = "uid://cfjgw4esw0p0g"

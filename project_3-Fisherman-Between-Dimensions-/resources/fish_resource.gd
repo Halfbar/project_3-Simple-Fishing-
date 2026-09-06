@@ -16,3 +16,7 @@ class_name FishResource
 @export_category("Event")
 @export_range(0.0, 1.0)
 var event_chance: float = 0.3
+@export_category("Other")
+@export var fish_caught: bool = false
+@export var fish_texture: Texture2D
+@export_multiline var fish_description: String

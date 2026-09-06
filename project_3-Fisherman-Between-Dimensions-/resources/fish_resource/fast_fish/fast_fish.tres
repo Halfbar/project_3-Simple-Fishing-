@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishResource" format=3 uid="uid://gwjnxsd6fb3g"]
+
+[ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_kajmj"]
+[ext_resource type="Resource" uid="uid://cchu4krfeexep" path="res://resources/fish_resource/fast_fish/fast_fish_actions/fast_dash.tres" id="2_kajmj"]
+[ext_resource type="Resource" uid="uid://das0blllrtslq" path="res://resources/fish_resource/fast_fish/fast_fish_actions/fast_recovery.tres" id="3_hn7hr"]
+[ext_resource type="Texture2D" uid="uid://du0v1yp15hog7" path="res://resources/fish_resource/fast_fish/fast_fish_texture.tres" id="4_hn7hr"]
+[ext_resource type="Script" uid="uid://cfjgw4esw0p0g" path="res://resources/fish_resource.gd" id="4_o2i1m"]
+
+[resource]
+script = ExtResource("4_o2i1m")
+fish_name = "Fast fish"
+fish_actions = Array[ExtResource("1_kajmj")]([ExtResource("2_kajmj"), ExtResource("3_hn7hr")])
+fish_texture = ExtResource("4_hn7hr")
+fish_description = "It never stays still for long.
+By the time you notice where it was, it is already somewhere else."
+metadata/_custom_type_script = "uid://cfjgw4esw0p0g"

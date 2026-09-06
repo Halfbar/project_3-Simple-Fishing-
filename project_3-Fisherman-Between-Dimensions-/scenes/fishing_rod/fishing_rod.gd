@@ -58,6 +58,7 @@ func reel(delta: float):
 	)
 	stamina -= drain * delta
 	stamina = max(stamina, 0.0)
+	print("Stamina: " + str(stamina))
 
 func start_cast_charge() -> bool:
 	if current_state == RodStates.CASTING:

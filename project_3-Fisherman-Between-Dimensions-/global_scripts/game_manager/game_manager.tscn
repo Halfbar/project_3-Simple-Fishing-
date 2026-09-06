@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dbsjjep7dsd5w" path="res://global_scripts/game_manager/game_manager.gd" id="1_mftlo"]
 [ext_resource type="Script" uid="uid://cfjgw4esw0p0g" path="res://resources/fish_resource.gd" id="2_trp7d"]
 [ext_resource type="Resource" uid="uid://kuav3ikdri4b" path="res://resources/fish_resource/common_fish/common_fish.tres" id="3_dj0t7"]
+[ext_resource type="Resource" uid="uid://gwjnxsd6fb3g" path="res://resources/fish_resource/fast_fish/fast_fish.tres" id="4_owbcq"]
+[ext_resource type="Resource" uid="uid://cmnw2767t31oh" path="res://resources/fish_resource/slow_fish/slow_fish.tres" id="5_m75m6"]
+[ext_resource type="Resource" uid="uid://522akmbp8sry" path="res://resources/fish_resource/strange_fish/strange_fish.tres" id="6_nypa2"]
 
 [node name="game_manager" type="Node" unique_id=663991033]
 script = ExtResource("1_mftlo")
-all_fishes = Array[ExtResource("2_trp7d")]([ExtResource("3_dj0t7")])
+all_fishes = Array[ExtResource("2_trp7d")]([ExtResource("3_dj0t7"), ExtResource("4_owbcq"), ExtResource("5_m75m6"), ExtResource("6_nypa2")])

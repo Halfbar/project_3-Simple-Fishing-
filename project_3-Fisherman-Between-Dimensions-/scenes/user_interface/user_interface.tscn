@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfjtuwog43277" path="res://scenes/user_interface/user_interface.gd" id="1_yqwyh"]
 [ext_resource type="PackedScene" uid="uid://cxunluktj8erf" path="res://scenes/user_interface/pause/pause.tscn" id="2_e2uov"]
+[ext_resource type="PackedScene" uid="uid://dfs0h8g5povuq" path="res://scenes/fish_collection/fish_collection.tscn" id="3_cj8yd"]
 
 [node name="user_interface" type="CanvasLayer" unique_id=1011023583]
 script = ExtResource("1_yqwyh")
@@ -26,6 +27,14 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "FPS: 0"
 
+[node name="open_collection_btn" type="Button" parent="in_game" unique_id=1735968347]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 105.0
+offset_bottom = 50.0
+text = "Collection"
+
 [node name="event_ui" type="Control" parent="." unique_id=169629883]
 layout_mode = 3
 anchors_preset = 15
@@ -38,3 +47,29 @@ mouse_filter = 2
 [node name="pause" parent="event_ui" unique_id=1878600883 instance=ExtResource("2_e2uov")]
 visible = false
 layout_mode = 1
+
+[node name="event_ui_boundaries" type="Control" parent="event_ui" unique_id=444974205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 31.0
+offset_right = -81.55554
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fish_collection" parent="event_ui/event_ui_boundaries" unique_id=1890942614 instance=ExtResource("3_cj8yd")]
+visible = false
+layout_mode = 1
+
+[node name="close_collection_btn" type="Button" parent="event_ui/event_ui_boundaries/fish_collection" unique_id=712479232]
+layout_mode = 0
+offset_right = 1004.0
+offset_bottom = 31.0
+text = "Close"
+
+[connection signal="pressed" from="in_game/open_collection_btn" to="." method="_on_open_collection_btn_pressed"]
+[connection signal="pressed" from="event_ui/event_ui_boundaries/fish_collection/close_collection_btn" to="." method="_on_close_collection_btn_pressed"]

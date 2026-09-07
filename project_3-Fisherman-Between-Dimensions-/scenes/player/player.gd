@@ -42,6 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		player_current_state = PlayerStates.REELING
 	if event.is_action_released("reel"):
 		player_current_state = PlayerStates.IDLE
+		fishing_rod.stop_reeling()
 
 func _process(delta: float) -> void:
 	match player_current_state:

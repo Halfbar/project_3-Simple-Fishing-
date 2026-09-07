@@ -1,6 +1,6 @@
 extends Node
 
-var current_fishing_area: FishingArea
+var fishing_rod: FishingRod
 @export var all_fishes: Array[FishResource]
 
 func _ready() -> void:

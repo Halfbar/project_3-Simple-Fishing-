@@ -18,13 +18,16 @@ enum RodStates {
 
 var current_state: RodStates = RodStates.IDLE
 
-@export var max_stamina: float = 100.0
-var stamina: float
-var stamina_regeniration: float = 2.0
-var reel_stamina_drain: float = 2.0
+var max_stamina: float = 100.0
+var stamina: float = 100.0
+var stamina_regeniration: float = 4.0
+var reel_stamina_drain: float = 8.0
+
+var is_reeling: bool = false
 
 func _ready() -> void:
 	SignalBus.event_started.connect(_on_event_started)
+	GameManager.fishing_rod = self
 
 func get_fishing_min_radius():
 	return fishing_catch_collision.shape.radius * global_scale.x
@@ -37,6 +40,8 @@ func _on_event_started(_fish_behavior):
 	set_state(RodStates.FISHING)
 
 func _process(delta: float) -> void:
+	if is_reeling:
+		return
 	stamina = min(
 	stamina + stamina_regeniration * delta,
 	max_stamina
@@ -51,6 +56,7 @@ func reel(delta: float):
 		return
 	if stamina <= 0:
 		return
+	is_reeling = true
 	bobber.move_to_rod(delta)
 	var drain := (
 		bobber.current_fish_action.strength
@@ -59,6 +65,9 @@ func reel(delta: float):
 	stamina -= drain * delta
 	stamina = max(stamina, 0.0)
 	print("Stamina: " + str(stamina))
+
+func stop_reeling():
+	is_reeling = false
 
 func start_cast_charge() -> bool:
 	if current_state == RodStates.CASTING:
@@ -93,6 +102,7 @@ func set_state(new_state: RodStates):
 	if current_state == new_state:
 		return
 	current_state = new_state
+	queue_redraw()
 	SignalBus.fishing_rod_state.emit(current_state)
 
 func _on_fishing_catch_area_2d_area_entered(area: Area2D) -> void:
@@ -108,3 +118,28 @@ func _on_fishing_distance_area_2d_area_exited(area: Area2D) -> void:
 		set_state(RodStates.FAILED)
 		set_state(RodStates.IDLE)
 		return
+
+func _draw() -> void:
+	if current_state != RodStates.FISHING:
+		return
+	var circle = fishing_catch_collision.shape
+	var circle2 = fishing_distance_collision.shape
+	
+	draw_arc(
+		Vector2.ZERO,
+		circle2.radius,
+		0.0,
+		TAU,
+		64,
+		Color.BLACK,
+		2.0
+	)
+	draw_arc(
+		Vector2.ZERO,
+		circle.radius,
+		0.0,
+		TAU,
+		64,
+		Color.RED,
+		2.0
+	)

@@ -6,5 +6,5 @@
 script = ExtResource("1_4p53s")
 action_type = 2
 duration = 0.5
-strength = 300.0
+strength = 150.0
 metadata/_custom_type_script = "uid://da1jfd8y6xcev"

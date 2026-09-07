@@ -13,7 +13,7 @@ config_version=5
 config/name="project_3-Fisherman-Between-Dimensions-"
 run/main_scene="uid://by4ew75md3e7k"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dnifp4m2sprhh"
 
 [autoload]
 

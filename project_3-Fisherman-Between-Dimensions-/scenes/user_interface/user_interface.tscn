@@ -35,6 +35,13 @@ offset_right = 105.0
 offset_bottom = 50.0
 text = "Collection"
 
+[node name="stamina_bar" type="ProgressBar" parent="in_game" unique_id=1184540734]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 240.0
+offset_right = 671.0
+offset_bottom = 267.0
+
 [node name="event_ui" type="Control" parent="." unique_id=169629883]
 layout_mode = 3
 anchors_preset = 15

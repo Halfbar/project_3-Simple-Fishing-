@@ -1,7 +1,35 @@
 [gd_scene format=3 uid="uid://dfs0h8g5povuq"]
 
+[ext_resource type="Theme" uid="uid://dy07ibq7dncbx" path="res://scenes/theme/game_theme.tres" id="1_i3kv5"]
 [ext_resource type="PackedScene" uid="uid://cjhksmi0ai8ds" path="res://scenes/fish_collection/fish_collection_card/fish_collection_card.tscn" id="1_qmhv4"]
 [ext_resource type="Script" uid="uid://woxcyk2phx1k" path="res://scenes/fish_collection/fish_collection.gd" id="1_u6awj"]
+[ext_resource type="Texture2D" uid="uid://rlkkst07mk41" path="res://assets/3rd parties/btn_icon_prev.tres" id="3_53ddu"]
+[ext_resource type="Script" uid="uid://7e203uy74jtq" path="res://scenes/theme/sound_btn/sound_btn.gd" id="4_7xxq5"]
+[ext_resource type="Texture2D" uid="uid://fo1xvktc7qip" path="res://assets/3rd parties/btn_icon_next.tres" id="5_so74p"]
+[ext_resource type="AudioStream" uid="uid://dholrruj5atqm" path="res://assets/3rd parties/card_draw_3.wav" id="5_v2baa"]
+[ext_resource type="AudioStream" uid="uid://cq23ka1stjqcu" path="res://assets/3rd parties/click_double_on_2.wav" id="6_nc2qj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3lk2"]
+texture = ExtResource("3_53ddu")
+modulate_color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8l060"]
+texture = ExtResource("3_53ddu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mcmmu"]
+texture = ExtResource("3_53ddu")
+modulate_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_so74p"]
+texture = ExtResource("5_so74p")
+modulate_color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0lai"]
+texture = ExtResource("5_so74p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iqhkp"]
+texture = ExtResource("5_so74p")
+modulate_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 
 [node name="fish_collection" type="Control" unique_id=1890942614]
 layout_mode = 3
@@ -10,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_i3kv5")
 script = ExtResource("1_u6awj")
 
 [node name="collection_panel" type="Panel" parent="." unique_id=288019970]
@@ -52,7 +81,12 @@ theme_override_constants/margin_bottom = 50
 
 [node name="prev_btn" type="Button" parent="collection_panel/VBoxContainer/collection_hbox/prev_btn_margin" unique_id=2065961374]
 layout_mode = 2
-text = "Previous"
+theme_override_styles/normal = SubResource("StyleBoxTexture_f3lk2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8l060")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mcmmu")
+script = ExtResource("4_7xxq5")
+hover_sound = ExtResource("5_v2baa")
+press_sound = Array[AudioStream]([ExtResource("6_nc2qj")])
 
 [node name="card_margin" type="MarginContainer" parent="collection_panel/VBoxContainer/collection_hbox" unique_id=2023757475]
 layout_mode = 2
@@ -75,7 +109,12 @@ theme_override_constants/margin_bottom = 50
 
 [node name="next_btn" type="Button" parent="collection_panel/VBoxContainer/collection_hbox/next_btn_margin" unique_id=1624646795]
 layout_mode = 2
-text = "Next"
+theme_override_styles/normal = SubResource("StyleBoxTexture_so74p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_y0lai")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iqhkp")
+script = ExtResource("4_7xxq5")
+hover_sound = ExtResource("5_v2baa")
+press_sound = Array[AudioStream]([ExtResource("6_nc2qj")])
 
 [connection signal="pressed" from="collection_panel/VBoxContainer/collection_hbox/prev_btn_margin/prev_btn" to="." method="_on_prev_btn_pressed"]
 [connection signal="pressed" from="collection_panel/VBoxContainer/collection_hbox/next_btn_margin/next_btn" to="." method="_on_next_btn_pressed"]

@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://djxe7exv2p07j"]
 
 [ext_resource type="Script" uid="uid://7e203uy74jtq" path="res://scenes/theme/sound_btn/sound_btn.gd" id="1_wvwj3"]
+[ext_resource type="AudioStream" uid="uid://dholrruj5atqm" path="res://assets/3rd parties/card_draw_3.wav" id="2_gaprg"]
+[ext_resource type="AudioStream" uid="uid://cq23ka1stjqcu" path="res://assets/3rd parties/click_double_on_2.wav" id="3_b872s"]
 
 [node name="sound_btn" type="Button" unique_id=807909536]
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_wvwj3")
+hover_sound = ExtResource("2_gaprg")
+press_sound = Array[AudioStream]([ExtResource("3_b872s")])

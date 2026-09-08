@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://72wgi4g5l8gj"]
 
 [ext_resource type="Script" uid="uid://dfjtuwog43277" path="res://scenes/user_interface/user_interface.gd" id="1_yqwyh"]
+[ext_resource type="Theme" uid="uid://dy07ibq7dncbx" path="res://scenes/theme/game_theme.tres" id="2_2dtu1"]
 [ext_resource type="PackedScene" uid="uid://cxunluktj8erf" path="res://scenes/user_interface/pause/pause.tscn" id="2_e2uov"]
 [ext_resource type="PackedScene" uid="uid://dfs0h8g5povuq" path="res://scenes/fish_collection/fish_collection.tscn" id="3_cj8yd"]
+[ext_resource type="Script" uid="uid://7e203uy74jtq" path="res://scenes/theme/sound_btn/sound_btn.gd" id="3_pvt6f"]
+[ext_resource type="AudioStream" uid="uid://dholrruj5atqm" path="res://assets/3rd parties/card_draw_3.wav" id="4_flq3v"]
+[ext_resource type="AudioStream" uid="uid://cq23ka1stjqcu" path="res://assets/3rd parties/click_double_on_2.wav" id="5_8wifb"]
+[ext_resource type="Texture2D" uid="uid://bj1g7ndfpo71n" path="res://assets/3rd parties/btn_icon_close.tres" id="5_f1hci"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0cii"]
+texture = ExtResource("5_f1hci")
+modulate_color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xuti"]
+texture = ExtResource("5_f1hci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvt6f"]
+texture = ExtResource("5_f1hci")
+modulate_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 
 [node name="user_interface" type="CanvasLayer" unique_id=1011023583]
 script = ExtResource("1_yqwyh")
@@ -15,6 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_2dtu1")
 
 [node name="fps_show_label" type="Label" parent="in_game" unique_id=1559268838]
 visible = false
@@ -34,13 +51,18 @@ offset_top = 19.0
 offset_right = 105.0
 offset_bottom = 50.0
 text = "Collection"
+script = ExtResource("3_pvt6f")
+hover_sound = ExtResource("4_flq3v")
+press_sound = Array[AudioStream]([ExtResource("5_8wifb")])
 
 [node name="stamina_bar" type="ProgressBar" parent="in_game" unique_id=1184540734]
+self_modulate = Color(1, 1, 0, 1)
 layout_mode = 0
 offset_left = 484.0
 offset_top = 240.0
 offset_right = 671.0
 offset_bottom = 267.0
+value = 100.0
 
 [node name="event_ui" type="Control" parent="." unique_id=169629883]
 layout_mode = 3
@@ -69,14 +91,19 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="fish_collection" parent="event_ui/event_ui_boundaries" unique_id=1890942614 instance=ExtResource("3_cj8yd")]
-visible = false
 layout_mode = 1
 
 [node name="close_collection_btn" type="Button" parent="event_ui/event_ui_boundaries/fish_collection" unique_id=712479232]
 layout_mode = 0
-offset_right = 1004.0
-offset_bottom = 31.0
-text = "Close"
+offset_left = 466.0
+offset_right = 543.0
+offset_bottom = 73.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_s0cii")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6xuti")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pvt6f")
+script = ExtResource("3_pvt6f")
+hover_sound = ExtResource("4_flq3v")
+press_sound = Array[AudioStream]([ExtResource("5_8wifb")])
 
 [connection signal="pressed" from="in_game/open_collection_btn" to="." method="_on_open_collection_btn_pressed"]
 [connection signal="pressed" from="event_ui/event_ui_boundaries/fish_collection/close_collection_btn" to="." method="_on_close_collection_btn_pressed"]

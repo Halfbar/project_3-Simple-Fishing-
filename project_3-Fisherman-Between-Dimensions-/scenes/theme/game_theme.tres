@@ -1,3 +1,27 @@
 [gd_resource type="Theme" format=3 uid="uid://dy07ibq7dncbx"]
 
+[ext_resource type="Texture2D" uid="uid://vgmcp71hsya2" path="res://assets/3rd parties/btn_hover.tres" id="1_yiahp"]
+[ext_resource type="Texture2D" uid="uid://bjswk7n2ibbj5" path="res://assets/3rd parties/btn_normal.tres" id="2_kqaxy"]
+[ext_resource type="Texture2D" uid="uid://cicrfs16jyfw1" path="res://assets/3rd parties/btn_pressed.tres" id="3_nwib3"]
+[ext_resource type="Texture2D" uid="uid://ch13xq736vybl" path="res://assets/3rd parties/panel.tres" id="4_kqaxy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f53dk"]
+texture = ExtResource("1_yiahp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppdao"]
+texture = ExtResource("2_kqaxy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wuckd"]
+texture = ExtResource("3_nwib3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unr0a"]
+texture = ExtResource("4_kqaxy")
+modulate_color = Color(1, 0.6627451, 0.34117648, 1)
+
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_f53dk")
+Button/styles/normal = SubResource("StyleBoxTexture_ppdao")
+Button/styles/pressed = SubResource("StyleBoxTexture_wuckd")
+Panel/styles/panel = SubResource("StyleBoxTexture_unr0a")

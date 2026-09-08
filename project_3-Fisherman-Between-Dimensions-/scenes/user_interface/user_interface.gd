@@ -20,7 +20,9 @@ func _process(_delta: float) -> void:
 	fps_show_label.visible = SaveConfig.fps_show
 	if SaveConfig.fps_show:
 		fps_show_label.text = "FPS: " + str(Engine.get_frames_per_second())
-	stamina_bar.value = GameManager.fishing_rod.stamina
+	var stamina := GameManager.fishing_rod.stamina
+	stamina_bar.value = stamina
+	stamina_bar.visible = stamina < GameManager.fishing_rod.max_stamina
 
 func close_panels():
 	var childs = event_ui_boundaries.get_children()

@@ -10,3 +10,4 @@ enum ActionType {
 @export var action_type: ActionType
 @export var duration: float = 1.0
 @export var strength: float = 1.0
+@export var action_sound: AudioStream

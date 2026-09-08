@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://drfeq86gkfl4e" path="res://scenes/bobber/bobber.gd" id="1_a1b0n"]
 [ext_resource type="Texture2D" uid="uid://jk6gy861c7w4" path="res://scenes/bobber/bobber_texture.tres" id="2_a1b0n"]
+[ext_resource type="AudioStream" uid="uid://bmhap4um0spg0" path="res://assets/3rd parties/punch.wav" id="2_o2a5t"]
+[ext_resource type="AudioStream" uid="uid://coklqwpa6hkjo" path="res://assets/3rd parties/power_up.wav" id="3_sp23g"]
+[ext_resource type="AudioStream" uid="uid://vqvwfep4w7d2" path="res://assets/3rd parties/undesired_effect.wav" id="4_277cm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o2a5t"]
 radius = 6.0
 
 [node name="bobber" type="Node2D" unique_id=2129681403]
 script = ExtResource("1_a1b0n")
+land_sound = ExtResource("2_o2a5t")
+catch_sound = ExtResource("3_sp23g")
+failed_sound = ExtResource("4_277cm")
 
 [node name="bobber_sprite" type="Sprite2D" parent="." unique_id=1836301772]
 position = Vector2(-4.7683716e-07, 4.7683716e-07)

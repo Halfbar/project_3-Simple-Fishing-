@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://by4ew75md3e7k"]
 
+[ext_resource type="Theme" uid="uid://dy07ibq7dncbx" path="res://scenes/theme/game_theme.tres" id="1_3ovsr"]
 [ext_resource type="PackedScene" uid="uid://djxe7exv2p07j" path="res://scenes/theme/sound_btn/sound_btn.tscn" id="1_fsom3"]
 [ext_resource type="Script" uid="uid://cfj3q26kpfwji" path="res://scenes/main_menu/main_menu.gd" id="1_ob46e"]
 [ext_resource type="PackedScene" uid="uid://xtd2b1ebvnv3" path="res://scenes/settings/settings.tscn" id="2_0ebjn"]
+[ext_resource type="AudioStream" uid="uid://dne1gx7r2461f" path="res://assets/3rd parties/Week 9 - Graceful Descent LANDING.ogg" id="2_uqeha"]
+[ext_resource type="Texture2D" uid="uid://b5kygsrhg36gp" path="res://assets/art/bg_mm.tres" id="3_wem23"]
 
 [node name="main_menu" type="Control" unique_id=81551596]
 layout_mode = 3
@@ -11,7 +14,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3ovsr")
 script = ExtResource("1_ob46e")
+mm_bg_music = ExtResource("2_uqeha")
 
 [node name="bg" type="Control" parent="." unique_id=1449681088]
 layout_mode = 1
@@ -22,12 +27,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="bg_texture" type="TextureRect" parent="bg" unique_id=1946398621]
+self_modulate = Color(0.5882353, 0.5882353, 0.5882353, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_wem23")
 
 [node name="panels" type="Control" parent="." unique_id=843950295]
 layout_mode = 1

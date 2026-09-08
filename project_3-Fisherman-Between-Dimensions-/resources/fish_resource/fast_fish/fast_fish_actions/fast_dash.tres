@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="FishAction" format=3 uid="uid://cchu4krfeexep"]
 
+[ext_resource type="AudioStream" uid="uid://dvn6ieuomxfu3" path="res://assets/3rd parties/wobble.wav" id="1_c0djs"]
 [ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_sojcl"]
 
 [resource]
@@ -7,4 +8,5 @@ script = ExtResource("1_sojcl")
 action_type = 2
 duration = 0.5
 strength = 150.0
+action_sound = ExtResource("1_c0djs")
 metadata/_custom_type_script = "uid://da1jfd8y6xcev"

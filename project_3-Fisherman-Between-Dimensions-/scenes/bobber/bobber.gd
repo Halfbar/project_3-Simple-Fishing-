@@ -3,6 +3,10 @@ class_name Bobber
 
 @onready var bobber_area_2d: Area2D = $bobber_area2d
 
+@export var land_sound: AudioStream
+@export var catch_sound: AudioStream
+@export var failed_sound: AudioStream
+
 var bobber_default_position: Vector2
 
 enum BobberStates {
@@ -44,7 +48,6 @@ func _process(delta: float) -> void:
 
 func process_recovery(_delta: float) -> void:
 	print("fish_recovery")
-	pass
 
 func process_moving(delta: float) -> void:
 	print("fish_moving")
@@ -55,16 +58,20 @@ func process_moving(delta: float) -> void:
 func _on_fishing_rod_state(rod_current_state: FishingRod.RodStates):
 	if rod_current_state == FishingRod.RodStates.FAILED:
 		set_default_position()
+		SoundManager.play_sound(failed_sound,"SFX",true)
+		current_action_index = -1
 		return
 	if rod_current_state == FishingRod.RodStates.CAUGHT:
 		set_default_position()
+		SoundManager.play_sound(catch_sound,"SFX",true)
 		GameManager.register_fish_caught(current_fish)
+		current_action_index = -1
 		return
 
 func move_to_rod(delta) -> void:
 	if global_position == bobber_default_position:
 		return
-	var pull_force: float = 70
+	var pull_force: float = 75
 	var direction: Vector2 = global_position.direction_to(bobber_default_position)
 	global_position += direction * pull_force * delta
 
@@ -80,6 +87,7 @@ func set_next_action() -> void:
 		current_action_index = 0
 	current_fish_action = current_fish.fish_actions[current_action_index]
 	action_time = current_fish_action.duration
+	SoundManager.play_sound(current_fish_action.action_sound,"SFX",true)
 	match current_fish_action.action_type:
 		FishAction.ActionType.RECOVERY:
 			bobber_current_state = BobberStates.RECOVERY
@@ -100,6 +108,7 @@ func throw_bobber(cast_position: Vector2) -> void:
 		self,"global_position",cast_position,0.5
 	)
 	await tween.finished
+	SoundManager.play_sound(land_sound,"SFX",true)
 
 func set_default_position():
 	print("bubbler_set_default")
@@ -110,6 +119,7 @@ func set_default_position():
 		self,"global_position",bobber_default_position,0.2
 	)
 	await tween.finished
+	SoundManager.play_sound(land_sound,"SFX",true)
 	
 func is_in_fishing_area() -> bool:
 	if bobber_area_2d.get_overlapping_areas():

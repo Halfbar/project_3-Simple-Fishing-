@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://ids11emu0jxy" path="res://scenes/game_scene/game_scene.gd" id="1_72663"]
 [ext_resource type="PackedScene" uid="uid://72wgi4g5l8gj" path="res://scenes/user_interface/user_interface.tscn" id="1_pwder"]
 [ext_resource type="Texture2D" uid="uid://cmpoer1vpru0" path="res://assets/art/bg_ground.tres" id="2_j8flk"]
+[ext_resource type="AudioStream" uid="uid://1huul7q5c3l7" path="res://assets/3rd parties/Week 1 - Retro Lounge BASE.ogg" id="2_wmtvo"]
 [ext_resource type="PackedScene" uid="uid://tammg8tck34d" path="res://scenes/player/player.tscn" id="3_o81xq"]
-[ext_resource type="Texture2D" uid="uid://b5kygsrhg36gp" path="res://assets/art/bg_house.tres" id="3_wmtvo"]
+[ext_resource type="Texture2D" uid="uid://dd3415awl8x3d" path="res://assets/art/bg_house.tres" id="4_wmtvo"]
 [ext_resource type="PackedScene" uid="uid://dt614kfnaa0b6" path="res://scenes/fishing_area/fishing_area.tscn" id="4_xb203"]
 
 [node name="game_scene" type="Node2D" unique_id=1383640292]
 script = ExtResource("1_72663")
+gs_bg_music = ExtResource("2_wmtvo")
 
 [node name="bg" type="Node2D" parent="." unique_id=1398546215]
 
@@ -20,7 +22,7 @@ texture = ExtResource("2_j8flk")
 [node name="bg_house" type="Sprite2D" parent="bg" unique_id=1073138075]
 position = Vector2(-265, -240.00002)
 scale = Vector2(4.0208335, 4.0208335)
-texture = ExtResource("3_wmtvo")
+texture = ExtResource("4_wmtvo")
 
 [node name="fishing_area" parent="." unique_id=718110983 instance=ExtResource("4_xb203")]
 position = Vector2(201.00002, 0)

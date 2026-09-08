@@ -4,6 +4,8 @@ class_name FishingRod
 @onready var fishing_distance_collision: CollisionShape2D = $fishing_distance_area2d/fishing_distance_collision
 @onready var fishing_catch_collision: CollisionShape2D = $fishing_catch_area2d/fishing_catch_collision
 
+@export var throw_sound: AudioStream
+
 enum RodStates {
 	IDLE,
 	CHARGING,
@@ -20,8 +22,8 @@ var current_state: RodStates = RodStates.IDLE
 
 var max_stamina: float = 100.0
 var stamina: float = 100.0
-var stamina_regeniration: float = 4.0
-var reel_stamina_drain: float = 8.0
+var stamina_regeniration: float = 10.0
+var reel_stamina_drain: float = 10.0
 
 var is_reeling: bool = false
 
@@ -90,6 +92,7 @@ func request_cast(cast_position: Vector2):
 	if current_state != RodStates.CHARGING:
 		return
 	set_state(RodStates.CASTING)
+	SoundManager.play_sound(throw_sound,"SFX",true)
 	await bobber.throw_bobber(cast_position)
 	if !bobber.is_in_fishing_area():
 		print("not_in_lake")
@@ -110,6 +113,7 @@ func _on_fishing_catch_area_2d_area_entered(area: Area2D) -> void:
 		print("Caught")
 		set_state(RodStates.CAUGHT)
 		set_state(RodStates.IDLE)
+		stamina = max_stamina
 		return
 
 func _on_fishing_distance_area_2d_area_exited(area: Area2D) -> void:
@@ -117,6 +121,7 @@ func _on_fishing_distance_area_2d_area_exited(area: Area2D) -> void:
 		print("Failed")
 		set_state(RodStates.FAILED)
 		set_state(RodStates.IDLE)
+		stamina = max_stamina
 		return
 
 func _draw() -> void:

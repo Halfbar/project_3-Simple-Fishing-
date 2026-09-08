@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dg00wfaa4yo8v" path="res://scenes/fishing_rod/fishing_rod.gd" id="1_ax5ha"]
 [ext_resource type="Texture2D" uid="uid://bng0bt1ikcvp4" path="res://scenes/fishing_rod/fishing_rod_texture.tres" id="2_fx4p7"]
+[ext_resource type="AudioStream" uid="uid://eewo6imybc3l" path="res://assets/3rd parties/throw.wav" id="2_o0lpe"]
 [ext_resource type="PackedScene" uid="uid://ce053bifhoe5o" path="res://scenes/bobber/bobber.tscn" id="3_fx4p7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ass7y"]
@@ -12,6 +13,7 @@ radius = 39.012817
 
 [node name="fishing_rod" type="Node2D" unique_id=165939338 node_paths=PackedStringArray("bobber")]
 script = ExtResource("1_ax5ha")
+throw_sound = ExtResource("2_o0lpe")
 bobber = NodePath("bubbler")
 
 [node name="fishing_rod_sprite" type="Sprite2D" parent="." unique_id=939404942]
@@ -31,6 +33,7 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_ass7y")
 
 [node name="fishing_catch_area2d" type="Area2D" parent="." unique_id=1010163346]
+position = Vector2(29, 20)
 collision_layer = 8
 collision_mask = 16
 

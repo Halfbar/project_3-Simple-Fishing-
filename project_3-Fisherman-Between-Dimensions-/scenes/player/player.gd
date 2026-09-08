@@ -2,9 +2,13 @@ extends Node2D
 
 class_name PlayerCharacter
 
-@export var fishing_rod: FishingRod
+@onready var tutorial_key_sprite: Sprite2D = $tutorial_key_sprite
 
+@export var fishing_rod: FishingRod
 @export var cast_charge_speed: float = 200.0
+
+@export var spacebar_texutre: Texture2D
+@export var lkm_texture: Texture2D
 
 enum PlayerStates {
 	IDLE,
@@ -20,7 +24,8 @@ var cast_direction: Vector2 = Vector2.ZERO
 var charging_direction: float = 1.0
 
 func _ready() -> void:
-	min_cast_distance = fishing_rod.get_fishing_min_radius()
+	min_cast_distance = fishing_rod.get_fishing_min_radius() + 40
+	print(min_cast_distance)
 	max_cast_distance = fishing_rod.get_fishing_max_radius()
 	player_current_state = PlayerStates.IDLE
 
@@ -45,6 +50,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		fishing_rod.stop_reeling()
 
 func _process(delta: float) -> void:
+	if fishing_rod.current_state == fishing_rod.RodStates.FISHING:
+		tutorial_key_sprite.show()
+		tutorial_key_sprite.texture = spacebar_texutre
+	
+	if fishing_rod.current_state == fishing_rod.RodStates.IDLE:
+		tutorial_key_sprite.show()
+		tutorial_key_sprite.texture = lkm_texture
+	
+	if fishing_rod.current_state == fishing_rod.RodStates.WAITING:
+		tutorial_key_sprite.hide()
+
 	match player_current_state:
 		PlayerStates.REELING:
 			fishing_rod.reel(delta)

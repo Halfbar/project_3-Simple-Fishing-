@@ -60,6 +60,7 @@ size_flags_horizontal = 3
 text = "Screen"
 
 [node name="btn_controls" parent="divider_vbox/btn_panel/btn_margin/btn_hcontainer" unique_id=751881902 instance=ExtResource("2_vu5fi")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Controls"

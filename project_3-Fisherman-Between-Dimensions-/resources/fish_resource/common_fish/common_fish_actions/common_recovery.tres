@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="FishAction" format=3 uid="uid://dsm33j3155vma"]
 
+[ext_resource type="AudioStream" uid="uid://dfiyvo1p1pprb" path="res://assets/3rd parties/fall_quick.wav" id="1_btj58"]
 [ext_resource type="Script" uid="uid://da1jfd8y6xcev" path="res://resources/fish_actions.gd" id="1_xrsyf"]
 
 [resource]
 script = ExtResource("1_xrsyf")
-duration = 3.0
+duration = 1.5
 strength = 0.0
+action_sound = ExtResource("1_btj58")
 metadata/_custom_type_script = "uid://da1jfd8y6xcev"
